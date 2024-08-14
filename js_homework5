@@ -1,0 +1,22 @@
+let obj = {
+    name: "Example",
+    type: "Object",
+    isActive: true,
+    getInfo: function() {
+        let properties = "";
+        for (let key in this) {
+            if (typeof this[key] !== 'function') {
+                properties += `${key}: ${this[key]}\n`;
+            }
+        }
+        return properties;
+    }
+};
+
+console.log(obj.getInfo());
+
+// Додаємо нову властивість
+obj.newProperty = "New Value";
+
+// Викликаємо метод знову, щоб переконатися, що нова властивість відображається
+console.log(obj.getInfo());
